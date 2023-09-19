@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class LandingPage extends StatefulWidget {
-  const LandingPage({super.key, required this.title});
+class TransactionPage extends StatefulWidget {
+  const TransactionPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<LandingPage> createState() => _LandingPageState();
+  State<TransactionPage> createState() => _TransactionPageState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _TransactionPageState extends State<TransactionPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _LandingPageState extends State<LandingPage> {
       ),
       body: Center(
         child: Text(
-          'LandingPage',
+          'TransactionPage',
         ),
       ),
     );

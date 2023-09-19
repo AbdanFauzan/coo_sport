@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "205456387491",
+    "project_id": "coo-sport",
+    "storage_bucket": "coo-sport.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205456387491:android:69b08340976f2e1cabfe16",
+        "android_client_info": {
+          "package_name": "com.example.coo_sport"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIfK_5owhPd2P-8SyEbjK6OEOZUDiTg30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:coo_sport/users/landingpage.dart' as users;
+import 'package:coo_sport/loginpage.dart';
 import 'package:flutter/material.dart';
 
 class LauncherPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _LauncherPageState extends State<LauncherPage> {
     var duration = const Duration(seconds: 3);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return users.LandingPage();
+        return LoginPage();
       }));
     });
   }
