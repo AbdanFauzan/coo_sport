@@ -15,9 +15,9 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('COO SPORT'),
+        title: const Text('COO SPORT'),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'AccountPage',
         ),

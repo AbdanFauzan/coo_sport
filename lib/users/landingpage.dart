@@ -1,7 +1,10 @@
+import 'package:coo_sport/users/accountpage.dart';
+import 'package:coo_sport/users/homepage.dart';
+import 'package:coo_sport/users/marketpage.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key, required this.title});
+  const LandingPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -10,17 +13,38 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  int _bottomCurrentIndex = 0;
+  final List<Widget> _container = [
+    const HomePage(title: '',),
+    const AccountPage(title: '',),
+    const MarketPage(title: '',),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('COO SPORT'),
-      ),
-      body: Center(
-        child: Text(
-          'LandingPage',
-        ),
+      body: _container[_bottomCurrentIndex], // Display the selected page
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _bottomCurrentIndex,
+        onTap: (int index) {
+          setState(() {
+            _bottomCurrentIndex = index; // Update the selected index
+          });
+        },
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Market',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Account',
+          ),
+        ],
       ),
     );
   }

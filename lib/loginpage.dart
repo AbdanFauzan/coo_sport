@@ -1,3 +1,4 @@
+import 'package:coo_sport/signuppage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: screenHeight,
                     width: screenWidth,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/atas.png'),
                           fit: BoxFit.fill,
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: screenHeight,
                     width: screenWidth,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/bawah.png'),
                           fit: BoxFit.fill,
@@ -51,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: screenHeight,
                     width: screenWidth,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/logo2.png'),
                           fit: BoxFit.fill,
@@ -60,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Positioned(
-                    top: screenHeight * 0.53, // Adjust the position
+                    top: screenHeight * 0.53,
                     left: 30,
                     right: 30,
                     child: Column(
@@ -74,25 +75,23 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: <Widget>[
                               Container(
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: TextField(
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    labelText: 'Username',
-                                    hintText: "Masukkan username",
+                                    labelText: 'Email',
+                                    hintText: "Masukkan Email",
                                     hintStyle:
-                                        TextStyle(color: Colors.grey[400]),
+                                        const TextStyle(color: Color.fromRGBO(189, 189, 189, 1)),
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                  height:
-                                      20), // Add some space between the username and password fields
+                              const SizedBox(height: 20),
                               Container(
                                 child: TextField(
-                                  obscureText: true, // Password field
+                                  obscureText: true,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -104,21 +103,19 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                  height:
-                                      25), // Add some space between the password field and the "Login" button
+                              const SizedBox(height: 20),
                               Container(
                                 height: 60,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   gradient: const LinearGradient(
                                     colors: [
-                                      Color.fromRGBO(1, 155, 131, 1),
+                                      Color.fromARGB(255, 1, 155, 131),
                                       Color.fromRGBO(1, 155, 131, 1),
                                     ],
                                   ),
                                 ),
-                                child: Center(
+                                child: const Center(
                                   child: Text(
                                     "Login",
                                     style: TextStyle(
@@ -128,16 +125,8 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                  height:
-                                      10), // Add some space between the "Login" button and the "Forgot Password?" text
-                              Text(
-                                "Forgot Password?",
-                                style: TextStyle(
-                                  color: Color.fromRGBO(1, 155, 131, 1),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              const SizedBox(height: 9),
+                              signUpOption(),
                             ],
                           ),
                         ),
@@ -150,6 +139,30 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Row signUpOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Don't have an account?",
+            style: TextStyle(color: Color.fromARGB(255, 105, 105, 105))
+            ),
+        
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SignUpPage(title: '',)),
+            );
+          },
+          child: const Text(
+            " Sign Up",
+            style: TextStyle(color: Color.fromARGB(255, 1, 155, 131), fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
     );
   }
 }

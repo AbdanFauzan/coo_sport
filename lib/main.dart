@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 152)),
         useMaterial3: true,
       ),
-      home: LauncherPage(),
+      // initialRoute: '/',
+      // onGenerateRoute: RouteGenerator().generateRoute,
+      home: const LauncherPage(),
     );
   }
 }

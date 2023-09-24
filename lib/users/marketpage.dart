@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class MarketPage extends StatefulWidget {
+  const MarketPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MarketPage> createState() => _MarketPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MarketPageState extends State<MarketPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: const Center(
         child: Text(
-          'HomePage',
+          'MarketPage',
         ),
       ),
     );
