@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MarketPage extends StatefulWidget {
-  const MarketPage({super.key, required this.title});
+class AccountPage extends StatefulWidget {
+  static String routeName = '/account';
+  const AccountPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MarketPage> createState() => _MarketPageState();
+  State<AccountPage> createState() => _AccountPageState();
 }
 
-class _MarketPageState extends State<MarketPage> {
+class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class _MarketPageState extends State<MarketPage> {
       ),
       body: const Center(
         child: Text(
-          'MarketPage',
+          'AccountPage',
         ),
       ),
     );

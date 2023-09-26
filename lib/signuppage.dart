@@ -1,4 +1,4 @@
-import 'package:coo_sport/users/landingpage.dart';
+import 'package:coo_sport/home/landingpage.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {

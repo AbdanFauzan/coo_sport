@@ -42,6 +42,9 @@ dependencies:
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
 
+  flutter_svg: ^2.0.7
+  provider: ^6.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,6 +76,7 @@ flutter:
     - assets/atas.png
     - assets/atas2.png
     - assets/bawah.png
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -85,12 +89,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Muli
+      fonts:
+        - asset: assets\fonts\muli\Muli.ttf
+        - asset: assets\fonts\muli\Muli-Bold.ttf
+          weight: 700
+        - asset: assets\fonts\muli\Muli-Light.ttf
+          weight: 300
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

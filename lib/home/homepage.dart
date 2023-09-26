@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'components/body.dart';
+
 class HomePage extends StatefulWidget {
+  static String routeName = '/home';
   const HomePage({super.key, required this.title});
 
   final String title;
@@ -13,15 +16,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('COO SPORT'),
-      ),
-      body: const Center(
-        child: Text(
-          'HomePage',
-        ),
-      ),
+    return const Scaffold(
+      body: Body(),
     );
   }
 }

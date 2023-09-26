@@ -1,6 +1,6 @@
-import 'package:coo_sport/users/accountpage.dart';
-import 'package:coo_sport/users/homepage.dart';
-import 'package:coo_sport/users/marketpage.dart';
+import 'package:coo_sport/home/accountpage.dart';
+import 'package:coo_sport/home/homepage.dart';
+import 'package:coo_sport/home/marketpage.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -16,8 +16,8 @@ class _LandingPageState extends State<LandingPage> {
   int _bottomCurrentIndex = 0;
   final List<Widget> _container = [
     const HomePage(title: '',),
-    const AccountPage(title: '',),
     const MarketPage(title: '',),
+    const AccountPage(title: '',),
   ];
 
   @override
