@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         hintText: "Search Product",
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: const Icon(Icons.search),
                         contentPadding: EdgeInsets.symmetric(
                           horizontal:
                               SizeConfig.getProportionateScreenWidth(20),

@@ -1,4 +1,4 @@
-import 'package:coo_sport/home/accountpage.dart';
+import 'package:coo_sport/account/accountpage.dart';
 import 'package:coo_sport/home/homepage.dart';
 import 'package:coo_sport/home/marketpage.dart';
 import 'package:flutter/material.dart';
