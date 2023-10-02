@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     SizeConfig().init(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Coo Sport',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "Muli",

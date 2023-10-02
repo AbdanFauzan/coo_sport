@@ -1,7 +1,7 @@
 import 'package:coo_sport/constans.dart';
 import 'package:coo_sport/home/components/icon_btn_with_counter.dart';
-import 'package:flutter/material.dart';
 import 'package:coo_sport/size_config.dart';
+import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

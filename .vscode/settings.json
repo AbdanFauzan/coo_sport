@@ -2,5 +2,6 @@
     "cSpell.words": [
         "atas"
     ],
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cmake.sourceDirectory": "E:/Abdan/Kuliah/05. Semester 5/00. PBL S5/coo_sport/windows"
 }

@@ -1,6 +1,7 @@
 import 'package:coo_sport/account/accountpage.dart';
 import 'package:coo_sport/home/homepage.dart';
 import 'package:coo_sport/home/marketpage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -13,6 +14,9 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  final user = FirebaseAuth.instance.currentUser!;
+
+
   int _bottomCurrentIndex = 0;
   final List<Widget> _container = [
     const HomePage(title: '',),

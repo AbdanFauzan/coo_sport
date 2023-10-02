@@ -1,11 +1,12 @@
 import 'package:coo_sport/constants/image_strings.dart';
 import 'package:coo_sport/constants/text_strings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class AccountPage extends StatefulWidget {
   static String routeName = '/account';
-  const AccountPage({super.key, required this.title});
+  const AccountPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -14,26 +15,28 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  final user = FirebaseAuth.instance.currentUser!;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
-        centerTitle: true, // Center the title
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Center vertically
-            crossAxisAlignment: CrossAxisAlignment.center, // Center horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 width: 120,
                 height: 120,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
-                  child: const Image(image: AssetImage(tProfileImage)),
+                  child: Image.asset(tProfileImage),
                 ),
               ),
               const SizedBox(height: 10),
@@ -47,9 +50,9 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                 ),
               ),
-              const Center(
+              Center(
                 child: Text(
-                  tProfileSubHeading,
+                  tProfileSubHeading + (user.email ?? ''),
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 16,
@@ -79,106 +82,74 @@ class _AccountPageState extends State<AccountPage> {
               const SizedBox(height: 10),
 
               // MENU
-              Padding(
-                padding: const EdgeInsets.all(8.0), // Add padding here
-                child: ListTile(
-                  leading: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.cog, color: Color.fromARGB(255, 1, 155, 131)),
-                  ),
-                  title: Text(tMenu1, style: Theme.of(context).textTheme.bodyMedium,),
-                  trailing: Container (
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.grey.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.angle_right, size: 20, color: Colors.grey)
-                  ),
+              menuButton(LineAwesomeIcons.address_card, tMenu1),
+              menuButton(LineAwesomeIcons.wallet, tMenu2),
+              menuButton(LineAwesomeIcons.plus_square, tMenu3),
+              menuButton(LineAwesomeIcons.clipboard_list, tMenu4),
+              menuButton(LineAwesomeIcons.map_marked, tMenu6),
+              menuButton(LineAwesomeIcons.alternate_sign_out, tMenu5),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget menuButton(IconData icon, String title) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {
+          if (title == tMenu5) {
+            // Sign out the user and navigate to the login page
+            _signOut(context);
+          } else {
+            // Handle other menu items here
+          }
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.black.withOpacity(0.1),
+                ),
+                child: Icon(icon, color: const Color.fromARGB(255, 1, 155, 131)),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
-                Padding(
-                padding: const EdgeInsets.all(8.0), // Add padding here
-                child: ListTile(
-                  leading: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.wallet, color: Color.fromARGB(255, 1, 155, 131)),
-                  ),
-                  title: Text(tMenu2, style: Theme.of(context).textTheme.bodyMedium,),
-                  trailing: Container (
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.grey.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.angle_right, size: 20, color: Colors.grey)
-                  ),
+              Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.grey.withOpacity(0.1),
                 ),
-              ),
-                Padding(
-                padding: const EdgeInsets.all(8.0), // Add padding here
-                child: ListTile(
-                  leading: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.plus_square, color: Color.fromARGB(255, 1, 155, 131)),
-                  ),
-                  title: Text(tMenu3, style: Theme.of(context).textTheme.bodyMedium,),
-                  trailing: Container (
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.grey.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.angle_right, size: 20, color: Colors.grey)
-                  ),
-                ),
-              ),
-                Padding(
-                padding: const EdgeInsets.all(8.0), // Add padding here
-                child: ListTile(
-                  leading: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.clipboard_list, color: Color.fromARGB(255, 1, 155, 131)),
-                  ),
-                  title: Text(tMenu4, style: Theme.of(context).textTheme.bodyMedium,),
-                  trailing: Container (
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.grey.withOpacity(0.1),
-                    ),
-                    child: const Icon(LineAwesomeIcons.angle_right, size: 20, color: Colors.grey)
-                  ),
-                ),
+                child: const Icon(LineAwesomeIcons.angle_right, size: 20, color: Colors.grey),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  // Function to sign out the user
+  void _signOut(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Navigator.of(context).pushReplacementNamed('/');
+    } catch (e) {
+      print('Error signing out: $e');
+    }
   }
 }
