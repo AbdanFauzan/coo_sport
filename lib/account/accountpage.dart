@@ -53,7 +53,7 @@ class _AccountPageState extends State<AccountPage> {
               Center(
                 child: Text(
                   tProfileSubHeading + (user.email ?? ''),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 16,
                     color: Colors.grey,
@@ -124,7 +124,7 @@ class _AccountPageState extends State<AccountPage> {
               Expanded(
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               Container(

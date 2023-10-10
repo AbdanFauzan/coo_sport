@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:coo_sport/loginpage.dart';
 import 'package:flutter/material.dart';
+import 'package:coo_sport/loginpage.dart'; // Make sure to import the LoginPage widget from the correct location.
 
 class LauncherPage extends StatefulWidget {
-  const LauncherPage({super.key});
+  const LauncherPage({Key? key}) : super(key: key); // Fix the constructor syntax.
 
   @override
   _LauncherPageState createState() => _LauncherPageState();
@@ -24,10 +24,10 @@ class _LauncherPageState extends State<LauncherPage> {
 
   startLaunching() async {
     var duration = const Duration(seconds: 3);
-    return Timer(duration, () {
+    Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        // return const users.LandingPage(title: '',);
-        return const LoginPage();
+        // Replace this with the appropriate route or widget you want to navigate to.
+        return LoginPage(showSignUpPage: () {}, title: '',); // Remove unnecessary comma.
       }));
     });
   }
@@ -43,10 +43,11 @@ class _LauncherPageState extends State<LauncherPage> {
           borderRadius: const BorderRadius.all(Radius.circular(0)),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.grey.shade200,
-                offset: const Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
+              color: Colors.grey.shade200,
+              offset: const Offset(2, 4),
+              blurRadius: 5,
+              spreadRadius: 2,
+            ),
           ],
         ),
         child: Column(
