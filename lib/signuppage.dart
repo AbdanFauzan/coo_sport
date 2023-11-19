@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coo_sport/loginpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class SignUpPage extends StatefulWidget {
   final VoidCallback showLoginPage;
@@ -23,6 +25,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
   final _phonenumberController = TextEditingController();
+  final _usernameController = TextEditingController();
 
   bool _passwordError = false; // Added variable to track password error
 
@@ -32,21 +35,77 @@ class _SignUpPageState extends State<SignUpPage> {
     _passwordController.dispose();
     _confirmpasswordController.dispose();
     _phonenumberController.dispose();
+    _usernameController.dispose();
     super.dispose();
   }
 
-  Future<void> signUp() async {
-    if (passwordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+Future<void> signUp() async {
+  if (passwordConfirmed()) {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-    } else {
-      setState(() {
-        _passwordError = true; // Show password error message
+
+      // Store user information in Firestore after successful sign-up
+      await FirebaseFirestore.instance.collection('Users').doc(userCredential.user!.uid).set({
+        'username': _usernameController.text.trim(),
+        'email': _emailController.text.trim(),
+        'phoneNumber': _phonenumberController.text.trim(),
+        // 'role': 'user',
+        // Add more fields as needed
       });
+
+      showDialog(
+        context: context,
+        builder: (BuildContext dialogContext) {
+          return AlertDialog(
+            title: const Text('Congratulations'),
+            content: const Text('You have successfully signed up!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        }
+      );
+
+      // Clear the text fields
+      _emailController.clear();
+      _passwordController.clear();
+      _confirmpasswordController.clear();
+      _phonenumberController.clear();
+      _usernameController.clear();
+    } on FirebaseAuthException catch (e) {
+      // Handle sign-up errors
+      showDialog(
+        context: context,
+        builder: (BuildContext dialogContext) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: Text(e.message ?? 'An error occurred.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        });
     }
+  } else {
+    setState(() {
+      _passwordError = true; // Show password error message
+    });
   }
+}
+
 
   bool passwordConfirmed() {
     return _passwordController.text.trim() == _confirmpasswordController.text.trim();
@@ -55,7 +114,6 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -89,11 +147,28 @@ class _SignUpPageState extends State<SignUpPage> {
                         Container(
                           padding: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.white, // Fixed this line
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
                             children: <Widget>[
+                              Container(
+                                decoration: const BoxDecoration(),
+                                child: TextField(
+                                  controller: _usernameController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    labelText: 'Username',
+                                    hintText: "Enter Username",
+                                    hintStyle: const TextStyle(
+                                      color: Color.fromRGBO(189, 189, 189, 1),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 20),
                               Container(
                                 decoration: const BoxDecoration(),
                                 child: TextField(
@@ -142,7 +217,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       color: Colors.grey[400],
                                     ),
                                     errorText: _passwordError
-                                        ? "Passwords do not match" // Show error message
+                                        ? "Passwords do not match"
                                         : null,
                                   ),
                                 ),

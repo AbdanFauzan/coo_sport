@@ -1,13 +1,14 @@
-import 'package:coo_sport/constants/text_strings.dart';
+import 'package:coo_sport/forgotpasswordpage.dart';
 import 'package:coo_sport/home/landingpage.dart';
 import 'package:coo_sport/signuppage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showSignUpPage;
-  const LoginPage({Key? key, required this.showSignUpPage, required String title}) : super(key: key);
+  const LoginPage(
+      {Key? key, required this.showSignUpPage, required String title})
+      : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -204,8 +205,10 @@ class _LoginPageState extends State<LoginPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        SignUpPage(showLoginPage: () {  }, title: '',), // Replace with the actual SignUpPage class
+                    builder: (context) => SignUpPage(
+                      showLoginPage: () {},
+                      title: '',
+                    ),
                   ),
                 );
               },
@@ -218,66 +221,30 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         ),
-        const SizedBox(height: 1),
-        Align(
-          alignment: Alignment.center,
-          child: TextButton(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) => Container(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(tForgetPasswordTitle,
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
-                      const Text(tForgetPasswordSubTile,
-                          style: TextStyle(fontWeight: FontWeight.normal)),
-                      const SizedBox(height: 30.0),
-                      GestureDetector(
-                        onTap: () {
-                          // Handle the action for resetting password via email
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(20.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey.shade200,
-                          ),
-                          child: const Row(
-                            children: [
-                              Icon(LineAwesomeIcons.envelope, size: 60.0),
-                              SizedBox(width: 20.0),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Email",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  Text("Reset via Email",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.normal)),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            child: const Text(
-              "Forget Password",
-              style: TextStyle(
-                  color: Colors.blueAccent, fontWeight: FontWeight.bold),
-            ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return const ForgotPasswordPage();
+              },
+            ));
+          },
+          child: const Text(
+            'Reset/Forgot Password ?',
+            style: TextStyle(
+                color: Color.fromRGBO(0, 80, 253, 1),
+                fontWeight: FontWeight.bold),
           ),
         ),
+
+        // const SizedBox(height: 1),
+        // Align(
+        //   alignment: Alignment.center,
+        //   child: TextButton(
+        //     onPressed: () {
+        //     }
+        //   ),
+        // ),
       ],
     );
   }

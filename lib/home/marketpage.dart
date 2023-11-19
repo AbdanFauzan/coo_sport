@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/listproduct.dart';
 
 class MarketPage extends StatefulWidget {
   static String routeName = '/market';
@@ -11,18 +12,10 @@ class MarketPage extends StatefulWidget {
 }
 
 class _MarketPageState extends State<MarketPage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('COO SPORT'),
-      ),
-      body: const Center(
-        child: Text(
-          'MarketPage',
-        ),
-      ),
+    return const Scaffold(
+      body: ListProduct(),
     );
   }
 }
