@@ -1,4 +1,4 @@
-import "package:coo_sport/utils/deive/device_utility.dart";
+import "package:coo_sport/utils/device/device_utility.dart";
 import "package:flutter/material.dart";
 import "package:coo_sport/utils/constants/sizes.dart";
 import "package:get/get.dart";
