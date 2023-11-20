@@ -3,6 +3,9 @@ import 'package:coo_sport/home/homepage.dart';
 import 'package:coo_sport/home/marketpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:iconsax/iconsax.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key, required this.title}) : super(key: key);
@@ -16,12 +19,17 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   final user = FirebaseAuth.instance.currentUser!;
 
-
   int _bottomCurrentIndex = 0;
   final List<Widget> _container = [
-    const HomePage(title: '',),
-    const MarketPage(title: '',),
-    const AccountPage(title: '',),
+    const HomePage(
+      title: '',
+    ),
+    const MarketPage(
+      title: '',
+    ),
+    const AccountPage(
+      title: '',
+    ),
   ];
 
   @override
@@ -37,15 +45,15 @@ class _LandingPageState extends State<LandingPage> {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Iconsax.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: Icon(Iconsax.shop),
             label: 'Market',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Iconsax.user),
             label: 'Account',
           ),
         ],

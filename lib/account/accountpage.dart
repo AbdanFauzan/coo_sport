@@ -45,7 +45,7 @@ class _AccountPageState extends State<AccountPage> {
 
       if (userData.exists) {
         setState(() {
-          username = userData['username'];
+          //username = userData['username'];
         });
       }
     }
