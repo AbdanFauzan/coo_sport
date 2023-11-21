@@ -55,13 +55,3 @@ class TFormatter {
     return formattedNumber.toString();
   }
 }
-
-
-/*
-*
-*
-<<<<<<< HEAD
-* */
-=======
-* */
->>>>>>> b0837b38275fda4f0c62f468a992effdcc836d64

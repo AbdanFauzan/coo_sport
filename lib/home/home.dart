@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'components/body.dart';
 
-class HomePage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   static String routeName = '/home';
-  const HomePage({super.key, required this.title});
+  const HomeScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

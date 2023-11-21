@@ -1,10 +1,8 @@
 import 'package:coo_sport/account/accountpage.dart';
-import 'package:coo_sport/home/homepage.dart';
-import 'package:coo_sport/home/marketpage.dart';
+import 'package:coo_sport/home/home.dart';
+import 'package:coo_sport/home/store.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class LandingPage extends StatefulWidget {
@@ -21,10 +19,10 @@ class _LandingPageState extends State<LandingPage> {
 
   int _bottomCurrentIndex = 0;
   final List<Widget> _container = [
-    const HomePage(
+    const HomeScreen(
       title: '',
     ),
-    const MarketPage(
+    const StoreScreen(
       title: '',
     ),
     const AccountPage(

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// TODO Implement this library.
-=======
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -120,4 +117,3 @@ class TDeviceUtils {
 
 // Add more device utility methods as per your specific requirements.
 }
->>>>>>> b0837b38275fda4f0c62f468a992effdcc836d64
