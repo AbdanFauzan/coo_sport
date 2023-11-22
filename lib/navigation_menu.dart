@@ -1,6 +1,6 @@
 import 'package:coo_sport/account/accountpage.dart';
-import 'package:coo_sport/home/home.dart';
-import 'package:coo_sport/home/store.dart';
+import 'package:coo_sport/features/shop/screens/home/home.dart';
+import 'package:coo_sport/features/shop/screens/store/store.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // Add this line
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +34,7 @@ class NavigationMenu extends StatelessWidget {
 
 class NavigationController extends GetxController {
   final user = FirebaseAuth.instance.currentUser!;
-  int _bottomCurrentIndex = 0;
+  final int _bottomCurrentIndex = 0;
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [

@@ -1,4 +1,4 @@
-import 'package:coo_sport/launcher.dart';
+import 'package:coo_sport/features/shop/screens/home/home.dart';
 import 'package:coo_sport/size_config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: '/',
       // onGenerateRoute: RouteGenerator().generateRoute,
-      home: const LauncherPage(),
+      home: const HomeScreen(
+        title: '',
+      ),
       // initialRoute: HomePage.routeName,
       // routes: routes,
     );

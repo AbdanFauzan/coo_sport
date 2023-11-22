@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class SignUpPage extends StatefulWidget {
   final VoidCallback showLoginPage;
   final String title;
@@ -39,76 +38,79 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
-Future<void> signUp() async {
-  if (passwordConfirmed()) {
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+  Future<void> signUp() async {
+    if (passwordConfirmed()) {
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
 
-      // Store user information in Firestore after successful sign-up
-      await FirebaseFirestore.instance.collection('Users').doc(userCredential.user!.uid).set({
-        'username': _usernameController.text.trim(),
-        'email': _emailController.text.trim(),
-        'phoneNumber': _phonenumberController.text.trim(),
-        // 'role': 'user',
-        // Add more fields as needed
-      });
-
-      showDialog(
-        context: context,
-        builder: (BuildContext dialogContext) {
-          return AlertDialog(
-            title: const Text('Congratulations'),
-            content: const Text('You have successfully signed up!'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        }
-      );
-
-      // Clear the text fields
-      _emailController.clear();
-      _passwordController.clear();
-      _confirmpasswordController.clear();
-      _phonenumberController.clear();
-      _usernameController.clear();
-    } on FirebaseAuthException catch (e) {
-      // Handle sign-up errors
-      showDialog(
-        context: context,
-        builder: (BuildContext dialogContext) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: Text(e.message ?? 'An error occurred.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          );
+        // Store user information in Firestore after successful sign-up
+        await FirebaseFirestore.instance
+            .collection('Users')
+            .doc(userCredential.user!.uid)
+            .set({
+          'username': _usernameController.text.trim(),
+          'email': _emailController.text.trim(),
+          'phoneNumber': _phonenumberController.text.trim(),
+          // 'role': 'user',
+          // Add more fields as needed
         });
-    }
-  } else {
-    setState(() {
-      _passwordError = true; // Show password error message
-    });
-  }
-}
 
+        showDialog(
+            context: context,
+            builder: (BuildContext dialogContext) {
+              return AlertDialog(
+                title: const Text('Congratulations'),
+                content: const Text('You have successfully signed up!'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
+              );
+            });
+
+        // Clear the text fields
+        _emailController.clear();
+        _passwordController.clear();
+        _confirmpasswordController.clear();
+        _phonenumberController.clear();
+        _usernameController.clear();
+      } on FirebaseAuthException catch (e) {
+        // Handle sign-up errors
+        showDialog(
+            context: context,
+            builder: (BuildContext dialogContext) {
+              return AlertDialog(
+                title: const Text('Error'),
+                content: Text(e.message ?? 'An error occurred.'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
+              );
+            });
+      }
+    } else {
+      setState(() {
+        _passwordError = true; // Show password error message
+      });
+    }
+  }
 
   bool passwordConfirmed() {
-    return _passwordController.text.trim() == _confirmpasswordController.text.trim();
+    return _passwordController.text.trim() ==
+        _confirmpasswordController.text.trim();
   }
 
   @override
@@ -252,10 +254,11 @@ Future<void> signUp() async {
                                   height: 60,
                                   alignment: Alignment.center,
                                   child: const Text(
-                                    "Sign Up",
+                                    "SIGN UP",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 20,
                                     ),
                                   ),
                                 ),

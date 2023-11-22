@@ -164,10 +164,11 @@ class _LoginPageState extends State<LoginPage> {
                                   height: 60,
                                   alignment: Alignment.center,
                                   child: const Text(
-                                    "Login",
+                                    "LOGIN",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 20,
                                     ),
                                   ),
                                 ),

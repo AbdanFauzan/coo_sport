@@ -1,6 +1,6 @@
 import 'package:coo_sport/account/accountpage.dart';
 import 'package:coo_sport/account/editprofilepage.dart';
-import 'package:coo_sport/home/home.dart';
+import 'package:coo_sport/features/shop/screens/home/home.dart';
 import "package:flutter/material.dart";
 
 final Map<String, WidgetBuilder> routes = {
