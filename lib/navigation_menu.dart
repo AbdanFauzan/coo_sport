@@ -34,7 +34,6 @@ class NavigationMenu extends StatelessWidget {
 
 class NavigationController extends GetxController {
   final user = FirebaseAuth.instance.currentUser!;
-  final int _bottomCurrentIndex = 0;
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [

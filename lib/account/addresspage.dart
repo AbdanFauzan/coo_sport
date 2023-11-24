@@ -4,6 +4,7 @@ class AddressPage extends StatefulWidget {
   const AddressPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _AddressPageState createState() => _AddressPageState();
 }
 
@@ -64,7 +65,8 @@ class _AddressPageState extends State<AddressPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 40, horizontal: 10),
                     labelText: 'Street Address',
                     hintText: 'Enter Street Address',
                     hintStyle: TextStyle(

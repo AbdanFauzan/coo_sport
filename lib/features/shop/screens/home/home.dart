@@ -1,5 +1,5 @@
-import 'package:coo_sport/common/styles/widgets/appbar/appbar.dart';
 import 'package:coo_sport/common/styles/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:coo_sport/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,14 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             TPrimaryHeaderContainer(
-                child: Column(
-              children: [
-                TAppBar(
-                    title: Column(
-                  children: [],
-                )),
-              ],
-            )),
+              child: Column(
+                children: [
+                  THomeAppBar(),
+                ],
+              ),
+            ),
           ],
         ),
       ),

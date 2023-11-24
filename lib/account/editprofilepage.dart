@@ -37,6 +37,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         'profilePicture': _imageUrl,
       });
     }
+    // ignore: use_build_context_synchronously
     Navigator.pop(context);
   }
 

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:coo_sport/loginpage.dart'; // Make sure to import the LoginPage widget from the correct location.
 
 class LauncherPage extends StatefulWidget {
-  const LauncherPage({Key? key}) : super(key: key); // Fix the constructor syntax.
+  const LauncherPage({Key? key, required String title})
+      : super(key: key); // Fix the constructor syntax.
 
   @override
   _LauncherPageState createState() => _LauncherPageState();
@@ -27,7 +28,10 @@ class _LauncherPageState extends State<LauncherPage> {
     Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
         // Replace this with the appropriate route or widget you want to navigate to.
-        return LoginPage(showSignUpPage: () {}, title: '',); // Remove unnecessary comma.
+        return LoginPage(
+          showSignUpPage: () {},
+          title: '',
+        ); // Remove unnecessary comma.
       }));
     });
   }
