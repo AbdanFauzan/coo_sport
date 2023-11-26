@@ -1,4 +1,4 @@
-import 'package:coo_sport/common/styles/widgets/appbar/appbar.dart';
+import 'package:coo_sport/common/widgets/appbar/appbar.dart';
 import 'package:flutter/material.dart';
 
 class StoreScreen extends StatefulWidget {

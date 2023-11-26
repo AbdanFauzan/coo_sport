@@ -108,23 +108,18 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/backgroundputih.png
-    - assets/logowhite.png
-    - assets/logo.png
-    - assets/logo2.png
-    - assets/atas.png
-    - assets/atas2.png
-    - assets/bawah.png
-    - assets/profile_picture.png
-    - assets/icons/
-    - assets/images/basket.png
-    - assets/images/Bola.png
-    - assets/images/ball.png
-    - assets/images/GYM.png
-    - assets/images/Sepatu.png
-    - assets/images/baju_sportwear.png
-    - assets/images/sepeda.png
+    - assets/
+    - assets/logos/
     - assets/icons/brands/
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/icons/categories/
+    - assets/images/banners/
+
+    # =============================================
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -138,14 +133,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Muli
-      fonts:
-        - asset: assets\fonts\muli\Muli.ttf
-        - asset: assets\fonts\muli\Muli-Bold.ttf
-          weight: 700
-        - asset: assets\fonts\muli\Muli-Light.ttf
-          weight: 300
-
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
