@@ -1,4 +1,4 @@
-import 'package:coo_sport/common/product.cart/cart_menu.dart';
+import 'package:coo_sport/common/product_cart/cart_menu.dart';
 import 'package:coo_sport/common/widgets/appbar/appbar.dart';
 import 'package:coo_sport/utils/constants/colors.dart';
 import 'package:coo_sport/utils/constants/text_strings.dart';

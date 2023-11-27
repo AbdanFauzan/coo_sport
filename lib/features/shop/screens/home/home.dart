@@ -1,8 +1,10 @@
 import 'package:coo_sport/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:coo_sport/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:coo_sport/common/widgets/layouts/grid_layout.dart';
 import 'package:coo_sport/common/widgets/texts/section_heading.dart';
 import 'package:coo_sport/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:coo_sport/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:coo_sport/common/widgets/products/product_card/product_card_vertical.dart';
 import 'package:coo_sport/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:coo_sport/utils/constants/image_strings.dart';
 import 'package:coo_sport/utils/constants/sizes.dart';
@@ -21,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -58,15 +60,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // Body
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: TPromoSlider(
-                banners: [
-                  TImages.banner3,
-                  TImages.banner2,
-                  TImages.banner1,
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const TPromoSlider(banners: [
+                    TImages.banner3,
+                    TImages.banner2,
+                    TImages.banner1,
+                  ]),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  TGridLayout(
+                      itemCount: 2,
+                      itemBuilder: (_, index) => const TProductCardVertical()),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
