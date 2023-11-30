@@ -1,5 +1,5 @@
 import 'package:coo_sport/forgotpasswordpage.dart';
-import 'package:coo_sport/navigation_menu.dart';
+import 'package:coo_sport/home_menu.dart';
 import 'package:coo_sport/signuppage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const NavigationMenu(
+          builder: (context) => const HomeMenu(
             title: '',
           ),
         ),

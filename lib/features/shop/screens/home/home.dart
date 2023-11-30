@@ -1,80 +1,93 @@
-import 'package:coo_sport/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:coo_sport/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:coo_sport/common/widgets/layouts/grid_layout.dart';
-import 'package:coo_sport/common/widgets/texts/section_heading.dart';
+import 'package:coo_sport/features/shop/screens/home/widgets/header_categories.dart';
+import 'package:coo_sport/features/shop/screens/home/widgets/header_search_container.dart';
 import 'package:coo_sport/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:coo_sport/features/shop/screens/home/widgets/home_categories.dart';
-import 'package:coo_sport/common/widgets/products/product_card/product_card_vertical.dart';
 import 'package:coo_sport/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:coo_sport/utils/constants/image_strings.dart';
-import 'package:coo_sport/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  static String routeName = '/home';
-  const HomeScreen({super.key, required this.title});
+import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../utils/constants/image_strings.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/constants/text_strings.dart';
+import '../../../../utils/device/device_utility.dart';
+import '../../controllers/dummy_data.dart';
+import '../../controllers/home_controller.dart';
+import '../all_products/all_products.dart';
 
-  final String title;
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key, required String title});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(HomeController());
+    final featuredProducts = controller.getFeaturedProducts();
+    final popularProducts = controller.getPopularProducts();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TPrimaryHeaderContainer(
+            /// Header
+            const TPrimaryHeaderContainer(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // AppBar
+                  /// -- Appbar
                   THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
 
-                  // SearchBar
-                  TSearchContainer(text: 'Search Here'),
+                  /// -- Searchbar
+                  TSearchContainer(text: 'Search in Store', showBorder: false),
                   SizedBox(height: TSizes.spaceBtwSections),
 
-                  // Categories
-                  Padding(
-                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
-                    child: Column(
-                      children: [
-                        // Heading
-                        TSectionHeading(
-                            title: 'Popular Categories',
-                            showActionButton: false),
-                        SizedBox(height: TSizes.spaceBtwItems),
-
-                        // Categories
-                        THomeCategories(),
-                      ],
-                    ),
-                  )
+                  /// -- Categories
+                  THeaderCategories(),
+                  SizedBox(height: TSizes.spaceBtwSections * 2),
                 ],
               ),
             ),
 
-            // Body
-            Padding(
+            /// -- Body
+            Container(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TPromoSlider(banners: [
-                    TImages.banner3,
-                    TImages.banner2,
-                    TImages.banner1,
-                  ]),
+                  /// -- Promo Slider 1
+                  const TPromoSlider(banners: [TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3]),
                   const SizedBox(height: TSizes.spaceBtwSections),
+
+                  /// -- Popular Products
+                  TSectionHeading(
+                    title: TTexts.popularProducts,
+                    onPressed: () => Get.to(() => AllProducts(title: TTexts.popularProducts, products: TDummyData.products)),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                   TGridLayout(
-                      itemCount: 2,
-                      itemBuilder: (_, index) => const TProductCardVertical()),
+                    itemCount: featuredProducts.length,
+                    itemBuilder: (_, index) => TProductCardVertical(product: featuredProducts[index]),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections * 2),
+
+                  /// -- Promo Slider 2
+                  const TPromoSlider(banners: [TImages.banner2, TImages.banner3, TImages.banner4]),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
+                  /// -- Popular Products
+                  TSectionHeading(
+                      title: TTexts.popularProducts,
+                      onPressed: () => Get.to(() => AllProducts(title: TTexts.popularProducts, products: TDummyData.products))),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  TGridLayout(
+                    itemCount: popularProducts.length,
+                    itemBuilder: (_, index) => TProductCardVertical(product: popularProducts[index]),
+                  ),
+                  SizedBox(height: TDeviceUtils.getBottomNavigationBarHeight() + TSizes.defaultSpace),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),

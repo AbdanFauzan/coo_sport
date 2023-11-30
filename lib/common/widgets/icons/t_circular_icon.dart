@@ -1,9 +1,16 @@
-import 'package:coo_sport/utils/constants/colors.dart';
-import 'package:coo_sport/utils/constants/sizes.dart';
-import 'package:coo_sport/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/helpers/helper_functions.dart';
+
 class TCircularIcon extends StatelessWidget {
+  /// A custom Circular Icon widget with a background color.
+  ///
+  /// Properties are:
+  /// Container [width], [height], & [backgroundColor].
+  ///
+  /// Icon's [size], [color] & [onPressed]
   const TCircularIcon({
     super.key,
     required this.icon,
@@ -34,8 +41,7 @@ class TCircularIcon extends StatelessWidget {
                 : TColors.white.withOpacity(0.9),
         borderRadius: BorderRadius.circular(100),
       ),
-      child: IconButton(
-          onPressed: onPressed, icon: Icon(icon, color: color, size: size)),
+      child: IconButton(onPressed: onPressed, icon: Icon(icon, color: color, size: size)),
     );
   }
 }

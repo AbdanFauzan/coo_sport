@@ -1,6 +1,6 @@
-import "package:coo_sport/utils/constants/colors.dart";
-import "package:coo_sport/utils/constants/sizes.dart";
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+
+import '../../../utils/constants/sizes.dart';
 
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({
@@ -8,24 +8,24 @@ class TRoundedImage extends StatelessWidget {
     this.border,
     this.padding,
     this.onPressed,
-    this.widht,
+    this.width,
     this.height,
     this.applyImageRadius = true,
     required this.imageUrl,
     this.fit = BoxFit.contain,
-    this.backgroundColor = TColors.light,
-    this.isNetwrokImage = false,
+    this.backgroundColor,
+    this.isNetworkImage = false,
     this.borderRadius = TSizes.md,
   });
 
-  final double? widht, height;
+  final double? width, height;
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
-  final bool isNetwrokImage;
+  final bool isNetworkImage;
   final VoidCallback? onPressed;
   final double borderRadius;
 
@@ -34,22 +34,13 @@ class TRoundedImage extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: widht,
+        width: width,
         height: height,
         padding: padding,
-        decoration: BoxDecoration(
-            border: border,
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(borderRadius)),
+        decoration: BoxDecoration(border: border, color: backgroundColor, borderRadius: BorderRadius.circular(borderRadius)),
         child: ClipRRect(
-          borderRadius: applyImageRadius
-              ? BorderRadius.circular(borderRadius)
-              : BorderRadius.zero,
-          child: Image(
-              fit: fit,
-              image: isNetwrokImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider),
+          borderRadius: applyImageRadius ? BorderRadius.circular(borderRadius) : BorderRadius.zero,
+          child: Image(fit: fit, image: isNetworkImage ? NetworkImage(imageUrl) : AssetImage(imageUrl) as ImageProvider),
         ),
       ),
     );

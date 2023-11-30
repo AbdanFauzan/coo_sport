@@ -1,12 +1,10 @@
-import 'package:coo_sport/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../utils/constants/sizes.dart';
 
 class TGridLayout extends StatelessWidget {
   const TGridLayout({
-    super.key,
-    required this.itemCount,
-    required this.itemBuilder,
-    this.mainAxisExtent = 288,
+    super.key, required this.itemCount, required this.itemBuilder, this.mainAxisExtent = 288
   });
 
   final int itemCount;
