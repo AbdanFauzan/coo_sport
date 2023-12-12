@@ -180,7 +180,7 @@ class TDummyData {
     CategoryModel(id: '4', image: TImages.animalIcon, name: 'Animals', isFeatured: true),
     CategoryModel(id: '6', image: TImages.shoeIcon, name: 'Shoes', isFeatured: true),
     CategoryModel(id: '7', image: TImages.cosmeticsIcon, name: 'Cosmetics', isFeatured: true),
-    CategoryModel(id: '14', image: TImages.jeweleryIcon, name: 'Jewelery', isFeatured: true),
+    // CategoryModel(id: '14', image: TImages.jeweleryIcon, name: 'Jewelery', isFeatured: true),
 
     ///subcategories
     CategoryModel(id: '8', image: TImages.sportIcon, name: 'Sport Shoes', parentId: '1', isFeatured: false),
