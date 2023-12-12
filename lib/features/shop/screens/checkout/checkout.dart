@@ -16,7 +16,6 @@ import '../../../../utils/helpers/helper_functions.dart';
 import '../../../../utils/helpers/pricing_calculator.dart';
 import '../../controllers/cart_controller.dart';
 
-
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
 
@@ -86,10 +85,13 @@ class CheckoutScreen extends StatelessWidget {
                 image: TImages.successfulPaymentIcon,
                 title: 'Payment Success!',
                 subTitle: 'Your item will be shipped soon!',
-                onPressed: () => Get.offAll(() =>  const LandingPage(title: '',)),
+                onPressed: () => Get.offAll(() => const LandingPage(
+                      title: '',
+                    )),
               ),
             ),
-            child: Text('Checkout \$${TPricingCalculator.calculateTotalPrice(subTotal, 'US')}'),
+            child: Text(
+                'Checkout \Rp${TPricingCalculator.calculateTotalPrice(subTotal, 'US')}'),
           ),
         ),
       ),

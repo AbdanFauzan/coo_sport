@@ -16,8 +16,10 @@ class ProductController extends GetxController {
   RxString variationStockStatus = ''.obs;
   RxMap selectedAttributes = {}.obs;
   RxString selectedProductImage = ''.obs;
-  final favorites = <String, RxBool>{}.obs; // Contains [ProductId: true] Favourite Product
-  Rx<ProductVariationModel> selectedVariation = ProductVariationModel.empty().obs;
+  final favorites =
+      <String, RxBool>{}.obs; // Contains [ProductId: true] Favourite Product
+  Rx<ProductVariationModel> selectedVariation =
+      ProductVariationModel.empty().obs;
 
   /// -- Initialize Products from your backend
   @override
@@ -31,13 +33,16 @@ class ProductController extends GetxController {
   void initializeAlreadyAddedProductCount(ProductModel product) {
     // If product has no variations then calculate cartEntries and display total number.
     // Else make default entries to 0 and show cartEntries when variation is selected.
-    if (product.productVariations == null || product.productVariations!.isEmpty) {
-      cartQuantity.value = CartController.instance.calculateSingleProductCartEntries(product.id, '');
+    if (product.productVariations == null ||
+        product.productVariations!.isEmpty) {
+      cartQuantity.value = CartController.instance
+          .calculateSingleProductCartEntries(product.id, '');
     } else {
       // Get selected Variation if any...
       final variationId = selectedVariation.value.id;
       if (variationId.isNotEmpty) {
-        cartQuantity.value = CartController.instance.calculateSingleProductCartEntries(product.id, variationId);
+        cartQuantity.value = CartController.instance
+            .calculateSingleProductCartEntries(product.id, variationId);
       } else {
         cartQuantity.value = 0;
       }
@@ -61,7 +66,8 @@ class ProductController extends GetxController {
 
     // Get all images from the Product Variations if not null.
     if (product.productVariations != null) {
-      images.addAll(product.productVariations!.map((variation) => variation.image));
+      images.addAll(
+          product.productVariations!.map((variation) => variation.image));
     }
 
     return images.toList();
@@ -77,7 +83,9 @@ class ProductController extends GetxController {
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: TSizes.defaultSpace * 2, horizontal: TSizes.defaultSpace),
+                padding: const EdgeInsets.symmetric(
+                    vertical: TSizes.defaultSpace * 2,
+                    horizontal: TSizes.defaultSpace),
                 child: Image(image: AssetImage(image)),
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
@@ -85,7 +93,8 @@ class ProductController extends GetxController {
                 alignment: Alignment.bottomCenter,
                 child: SizedBox(
                   width: 150,
-                  child: OutlinedButton(onPressed: () => Get.back(), child: const Text('Close')),
+                  child: OutlinedButton(
+                      onPressed: () => Get.back(), child: const Text('Close')),
                 ),
               ),
             ],
@@ -121,14 +130,14 @@ class ProductController extends GetxController {
       if (smallestPrice.isEqual(largestPrice)) {
         return largestPrice.toString();
       } else {
-        return '$smallestPrice - \$$largestPrice';
+        return '$smallestPrice - \Rp$largestPrice';
       }
     }
   }
 
   /// -- Calculate Discount Percentage
   String? calculateSalePercentage(double originalPrice, double? salePrice) {
-    if(salePrice == null) return null;
+    if (salePrice == null) return null;
     if (originalPrice <= 0 || salePrice <= 0) return null;
 
     double percentage = ((originalPrice - salePrice) / originalPrice) * 100;
@@ -136,20 +145,23 @@ class ProductController extends GetxController {
   }
 
   /// -- Check Product Stock Status
-  String getProductStockStatus(ProductModel product){
+  String getProductStockStatus(ProductModel product) {
     return product.stock > 0 ? 'In Stock' : 'Out of Stock';
   }
 
   /// -- Check Product Variation Stock Status
-  void getProductVariationStockStatus(){
+  void getProductVariationStockStatus() {
     // Use GetX .obs variable to keep updated the stock status when selected variation changes.
-    variationStockStatus.value = selectedVariation.value.stock > 0 ? 'In Stock' : 'Out of Stock';
+    variationStockStatus.value =
+        selectedVariation.value.stock > 0 ? 'In Stock' : 'Out of Stock';
   }
 
   /// -- Select Attribute, and Variation
-  void onAttributeSelected(ProductModel product, attributeName, attributeValue) {
+  void onAttributeSelected(
+      ProductModel product, attributeName, attributeValue) {
     // When attribute is selected we will first add that attribute to the selectedAttributes.
-    final selectedAttributes = Map<String, dynamic>.from(this.selectedAttributes);
+    final selectedAttributes =
+        Map<String, dynamic>.from(this.selectedAttributes);
     selectedAttributes[attributeName] = attributeValue;
     this.selectedAttributes[attributeName] = attributeValue;
 
@@ -157,8 +169,10 @@ class ProductController extends GetxController {
     // We will simply loop through all product variations and find the match of same Attributes
     // e.g. : Selected Attributes [Color: Green, Size: Small]
     // e.g. : Product Variation [Color: Green, Size: Small] -> Will be selected.
-    final ProductVariationModel selectedVariation = product.productVariations!.firstWhere(
-      (variation) => _isSameAttributeValues(variation.attributeValues, selectedAttributes),
+    final ProductVariationModel selectedVariation =
+        product.productVariations!.firstWhere(
+      (variation) =>
+          _isSameAttributeValues(variation.attributeValues, selectedAttributes),
       orElse: () => ProductVariationModel.empty(),
     );
 
@@ -169,7 +183,8 @@ class ProductController extends GetxController {
 
     // Show selected variation quantity already in the cart.
     if (selectedVariation.id.isNotEmpty) {
-      cartQuantity.value = CartController.instance.calculateSingleProductCartEntries(product.id, selectedVariation.id);
+      cartQuantity.value = CartController.instance
+          .calculateSingleProductCartEntries(product.id, selectedVariation.id);
     }
 
     this.selectedVariation.value = selectedVariation;
@@ -179,7 +194,8 @@ class ProductController extends GetxController {
   }
 
   /// -- Check If selected attributes matches any variation attributes
-  bool _isSameAttributeValues(Map<String, dynamic> variationAttributes, Map<String, dynamic> selectedAttributes) {
+  bool _isSameAttributeValues(Map<String, dynamic> variationAttributes,
+      Map<String, dynamic> selectedAttributes) {
     // If selectedAttributes contains 3 attributes and current variation contains 2 then return.
     if (variationAttributes.length != selectedAttributes.length) return false;
 
@@ -193,7 +209,8 @@ class ProductController extends GetxController {
   }
 
   /// -- Check Attribute availability / Stock in Variation
-  Set<String?> getAttributesAvailabilityInVariation(List<ProductVariationModel> variations, String attributeName) {
+  Set<String?> getAttributesAvailabilityInVariation(
+      List<ProductVariationModel> variations, String attributeName) {
     // Pass the variations to check which attributes are available and stock is not 0
     final availableVariationAttributeValues = variations
         .where((variation) =>
@@ -212,17 +229,19 @@ class ProductController extends GetxController {
   void addProductToCart(ProductModel product) {
     // Product do not have any variations, Simply add to cart
     if (product.productVariations == null) {
-      CartController.instance.addMultipleItemsToCart(product, ProductVariationModel.empty(), cartQuantity.value);
+      CartController.instance.addMultipleItemsToCart(
+          product, ProductVariationModel.empty(), cartQuantity.value);
       Get.back();
     } else {
       final variation = selectedVariation.value;
       if (variation.id.isEmpty) {
-        Get.snackbar(
-            'Select Variation', 'To add items in the cart you first have to select a Variation of this product.',
+        Get.snackbar('Select Variation',
+            'To add items in the cart you first have to select a Variation of this product.',
             snackPosition: SnackPosition.BOTTOM);
         return;
       } else {
-        CartController.instance.addMultipleItemsToCart(product, variation, cartQuantity.value);
+        CartController.instance
+            .addMultipleItemsToCart(product, variation, cartQuantity.value);
         Get.back();
       }
     }

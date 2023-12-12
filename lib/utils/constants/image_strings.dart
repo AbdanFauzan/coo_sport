@@ -14,23 +14,22 @@ class TImages {
   static const String facebook = "assets/logos/facebook-icon.png";
 
   // -- Category Icons
-  static const String sportIcon =
-      "assets/icons/categories/icons8-bowling-64.png";
-  static const String clothIcon =
-      "assets/icons/categories/icons8-tailors-dummy-64.png";
-  static const String shoeIcon = "assets/icons/categories/icons8-shoes-64.png";
+  static const String ballIcon = "assets/icons/categories/icons8-ball-64.png";
+  static const String bycicleIcon =
+      "assets/icons/categories/icons8-bike-64.png";
+  static const String gymIcon = "assets/icons/categories/icons8-gym-64.png";
+  static const String sportwearIcon =
+      "assets/icons/categories/icons8-t-sportwear-64.png";
+  static const String shoeIcon =
+      "assets/icons/categories/icons8-sport-shoes-64.png";
   static const String cosmeticsIcon =
       "assets/icons/categories/icons8-cosmetics-64.png";
   static const String animalIcon =
       "assets/icons/categories/icons8-dog-heart-64.png";
   static const String toyIcon =
       "assets/icons/categories/icons8-wooden-toy-car-50.png";
-  static const String furnitureIcon =
-      "assets/icons/categories/icons8-dining-chair-64.png";
   static const String jeweleryIcon =
       "assets/icons/categories/icons8-sparkling-diamond-64.png";
-  static const String electronicsIcon =
-      "assets/icons/categories/icons8-smartphone-64.png";
 
   // -- Brand Icons
   static const String nikeLogo = "assets/icons/brands/nike.png";
@@ -39,11 +38,13 @@ class TImages {
   static const String jordanLogo = "assets/icons/brands/jordan-logo.png";
   static const String pumaLogo = "assets/icons/brands/puma-logo.png";
   static const String zaraLogo = "assets/icons/brands/zara-logo.png";
-  static const String kenwoodLogo = "assets/icons/brands/kenwood-logo.png";
+  static const String mikasaLogo = "assets/icons/brands/mikasa-logo.png";
   static const String hermanMillerLogo =
       "assets/icons/brands/herman-miller-logo.png";
   static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
+  static const String polygonlogo = "assets/icons/brands/polygon-logo.png";
+  static const String unitedlogo = "assets/icons/brands/united-logo.png";
 
   // -- Animations
   static const String productsIllustration =
@@ -68,7 +69,7 @@ class TImages {
       "assets/images/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
-  static const String productImage1 = "assets/images/products/nike-shoes.png";
+  static const String productImage1 = "assets/images/products/mikasa-1.png";
   static const String productImage2 = "assets/images/products/product-1.png";
   static const String productImage3 =
       "assets/images/products/product-jacket.png";
@@ -106,11 +107,10 @@ class TImages {
       "assets/images/products/NikeAirJordonSingleBlue.png";
   static const String productImage20 =
       "assets/images/products/NikeAirJordonSingleOrange.png";
-  static const String productImage21 = "assets/images/products/NikeAirMax.png";
+  static const String productImage21 = "assets/images/products/mikasa-3.png";
   static const String productImage22 =
       "assets/images/products/NikeBasketballShoeGreenBlack.png";
-  static const String productImage23 =
-      "assets/images/products/NikeWildhorse.png";
+  static const String productImage23 = "assets/images/products/mikasa-2.png";
   static const String productImage24 =
       "assets/images/products/tracksuit_black.png";
   static const String productImage25 =
@@ -217,6 +217,156 @@ class TImages {
       "assets/images/products/slipper-product-3.png";
   static const String productImage77 =
       "assets/images/products/slipper-product.png";
+  //ball
+  static const String productImage78 =
+      "assets/images/products/mikasa-volley.png";
+  static const String productImage79 =
+      "assets/images/products/mikasa-volley-2.png";
+  static const String productImage80 =
+      "assets/images/products/mikasa-volley-3.png";
+  static const String productImage81 = "assets/images/products/adidas-ball.png";
+  static const String productImage82 =
+      "assets/images/products/adidas-ball-2.png";
+  static const String productImage83 =
+      "assets/images/products/adidas-ball-3.png";
+  static const String productImage84 =
+      "assets/images/products/adidas-ball-4.png";
+  static const String productImage85 =
+      "assets/images/products/adidas-volleyball.png";
+  static const String productImage86 =
+      "assets/images/products/adidas-volleyball-2.png";
+  static const String productImage87 =
+      "assets/images/products/adidas-volleyball-3.png";
+  static const String productImage88 =
+      "assets/images/products/adidas-basketball.png";
+  static const String productImage89 =
+      "assets/images/products/adidas-baskelball-2.png";
+  static const String productImage90 =
+      "assets/images/products/adidas-baskelball-3.png";
+  static const String productImage91 =
+      "assets/images/products/adidas-baskelball-4.png";
+  static const String productImage92 =
+      "assets/images/products/adidas-baskelball-5.png";
+  //bycicle
+  static const String productImage93 =
+      "assets/images/products/strattos s3-poligon.png";
+  static const String productImage94 =
+      "assets/images/products/strattos s3-poligon-2.png";
+  static const String productImage95 =
+      "assets/images/products/strattos s5-polygon.png";
+  static const String productImage96 =
+      "assets/images/products/strattos s5-polygon-2.png";
+  static const String productImage97 =
+      "assets/images/products/strattos s5-polygon-3.png";
+  static const String productImage98 =
+      "assets/images/products/strattos s5-polygon-4.png";
+  static const String productImage99 =
+      "assets/images/products/strattos s5-polygon.png";
+  static const String productImage100 =
+      "assets/images/products/strattos s5-polygon-2.png";
+  static const String productImage101 =
+      "assets/images/products/strattos s5-polygon-3.png";
+  static const String productImage102 =
+      "assets/images/products/strattos s5-polygon-4.png";
+  static const String productImage103 =
+      "assets/images/products/tuskar-bycicle.png";
+  static const String productImage104 =
+      "assets/images/products/tuskar-bycicle-2.png";
+  static const String productImage105 =
+      "assets/images/products/trifold 5d-black-bycicle.png";
+  static const String productImage106 =
+      "assets/images/products/trifold 5d-blue-bycicle.png";
+  static const String productImage107 =
+      "assets/images/products/trifold 5d-green-bycicle.png";
+  static const String productImage108 =
+      "assets/images/products/trifold 5d-green-bycicle.png";
+  //Gym
+  static const String productImage109 = "assets/images/products/dumble-1kg.png";
+  static const String productImage110 =
+      "assets/images/products/dumble-1kg-2.png";
+  static const String productImage111 =
+      "assets/images/products/dumble-1kg-3.png";
+  static const String productImage112 = "assets/images/products/dumble-3kg.png";
+  static const String productImage113 =
+      "assets/images/products/dumble-3kg-1.png";
+  static const String productImage114 =
+      "assets/images/products/dumble-3kg-2.png";
+
+  //matras
+  static const String productImage115 =
+      "assets/images/products/matras yoga abu.png";
+  static const String productImage116 =
+      "assets/images/products/matras yoga abu-2.png";
+  static const String productImage117 =
+      "assets/images/products/matras yoga abu-3.png";
+  static const String productImage118 =
+      "assets/images/products/matras yoga abu-4.png";
+  static const String productImage119 =
+      "assets/images/products/matras hitam.png";
+  static const String productImage120 =
+      "assets/images/products/matras hitam-2.png";
+  static const String productImage121 =
+      "assets/images/products/matras hitam-3.png";
+  static const String productImage122 =
+      "assets/images/products/matras hitam-4.png";
+
+  //Tredmill
+  static const String productImage123 =
+      "assets/images/products/id 100 ac-motorizer treadmill.png";
+  static const String productImage124 =
+      "assets/images/products/id 8000-motorizer treadmill.png";
+
+  //Futsal Shoes
+  static const String productImage125 =
+      "assets/images/products/futsal-specs.png";
+  static const String productImage126 =
+      "assets/images/products/futsal-specs-1.png";
+  static const String productImage127 =
+      "assets/images/products/futsal-specs-2.png";
+  static const String productImage128 =
+      "assets/images/products/futsal-specs-3.png";
+  static const String productImage129 =
+      "assets/images/products/futsal-specs-blue.png";
+  static const String productImage130 =
+      "assets/images/products/futsal-specs-blue-2.png";
+  static const String productImage131 =
+      "assets/images/products/futsal-specs-blue-3.png";
+  static const String productImage132 =
+      "assets/images/products/futsal-specs-blue-4.png";
+
+  //Jogging Shoes
+  static const String productImage133 =
+      "assets/images/products/jogging-nike-white-1.png";
+  static const String productImage134 =
+      "assets/images/products/jogging-nike-white-2.png";
+  static const String productImage135 =
+      "assets/images/products/jogging-nike-white.png";
+  static const String productImage136 =
+      "assets/images/products/jogging-adiddas-black.png";
+  static const String productImage137 =
+      "assets/images/products/jogging-adiddas-black-2.png";
+  static const String productImage138 =
+      "assets/images/products/jogging-adiddas-black-3.png";
+  static const String productImage139 =
+      "assets/images/products/jogging-adiddas-black-4.png";
+
+  //Basketball Shoes
+  static const String productImage140 =
+      "assets/images/products/basketball-shoes-nike.png";
+  static const String productImage141 =
+      "assets/images/products/basketball-shoes-nike-2.png";
+  static const String productImage142 =
+      "assets/images/products/basketball-shoes-nike-3.png";
+  static const String productImage143 =
+      "assets/images/products/basketball-shoes-nike-4.png";
+  static const String productImage144 =
+      "assets/images/products/basketball-white-nike.png";
+  static const String productImage145 =
+      "assets/images/products/basketball-white-nike-2.png";
+  static const String productImage146 =
+      "assets/images/products/basketball-white-nike-3.png";
+  static const String productImage147 =
+      "assets/images/products/basketball-white-nike-4.png";
 
   // -- Product Reviews
   static const String userProfileImage1 =
