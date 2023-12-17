@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class ItemTracking extends StatefulWidget {
   const ItemTracking({super.key});
@@ -8,6 +9,7 @@ class ItemTracking extends StatefulWidget {
 }
 
 class _ItemTrackingState extends State<ItemTracking> {
+  static const LatLng sourceLocation = LatLng(1.0824349847929984, 104.02685878188734);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,7 @@ class _ItemTrackingState extends State<ItemTracking> {
               ),
             ),
             SizedBox(height: 20),
-            
+            // GoogleMap(initialCameraPosition:  CameraPosition(target:  sourceLocation, zoom: 10)),
           ],
         ),
       ),

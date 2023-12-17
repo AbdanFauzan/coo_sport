@@ -87,7 +87,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           usernameController.text = userData['username'];
           emailController.text = userData['email'];
           phoneNumberController.text = userData['phoneNumber'];
-          _imageUrl = userData['profilePicture'];
+          // _imageUrl = userData['profilePicture'];
         });
       }
 

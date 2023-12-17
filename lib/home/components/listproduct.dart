@@ -24,7 +24,7 @@ class ListProduct extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "\$ $price",
+                  "Rp $price",
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,

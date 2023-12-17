@@ -71,7 +71,7 @@ class UserReviewCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("T's Store", style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500)),
+                    const Text("COO Sport", style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500)),
                     Text(TFormatter.formatDate(productReview.companyTimestamp)),
                   ],
                 ),

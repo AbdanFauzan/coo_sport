@@ -19,7 +19,6 @@ class TPrimaryHeaderContainer extends StatelessWidget {
         color: TColors.primary,
         padding: const EdgeInsets.only(bottom: 0),
 
-        /// -- If [size.isFinite': is not true.in Stack] error occurred -> Read README.md file at [DESIGN ERRORS] # 1
         child: Stack(
           children: [
             /// -- Background Custom Shapes

@@ -49,7 +49,7 @@ class TBottomAddToCart extends StatelessWidget {
                   productController.cartQuantity.value < 1 ? null : () => productController.addProductToCart(product),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(TSizes.md),
-                backgroundColor: TColors.black,
+                backgroundColor: TColors.white,
                 side: const BorderSide(color: TColors.black),
               ),
               child: const Row(

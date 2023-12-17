@@ -1,6 +1,6 @@
 import 'package:coo_sport/features/shop/screens/cart/widgets/cart_item.dart';
 import 'package:coo_sport/features/shop/screens/checkout/widgets/billing_payment_section.dart';
-import 'package:coo_sport/home/landingpage.dart';
+import 'package:coo_sport/home_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +13,7 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
-import '../../../../utils/helpers/pricing_calculator.dart';
 import '../../controllers/cart_controller.dart';
-
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
@@ -86,10 +84,13 @@ class CheckoutScreen extends StatelessWidget {
                 image: TImages.successfulPaymentIcon,
                 title: 'Payment Success!',
                 subTitle: 'Your item will be shipped soon!',
-                onPressed: () => Get.offAll(() =>  const LandingPage(title: '',)),
+                onPressed: () => Get.offAll(() => const HomeMenu(
+                      title: '',
+                    )),
               ),
             ),
-            child: Text('Checkout \$${TPricingCalculator.calculateTotalPrice(subTotal, 'US')}'),
+            child: const Text(
+                'Checkout'),
           ),
         ),
       ),

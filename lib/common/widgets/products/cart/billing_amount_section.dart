@@ -15,8 +15,10 @@ class TBillingAmountSection extends StatelessWidget {
         /// -- Sub Total
         Row(
           children: [
-            Expanded(child: Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium)),
-            Text('\$$subTotal', style: Theme.of(context).textTheme.bodyMedium),
+            Expanded(
+                child: Text('Subtotal',
+                    style: Theme.of(context).textTheme.bodyMedium)),
+            Text('Rp$subTotal', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -24,9 +26,11 @@ class TBillingAmountSection extends StatelessWidget {
         /// -- Shipping Fee
         Row(
           children: [
-            Expanded(child: Text('Shipping Fee', style: Theme.of(context).textTheme.bodyMedium)),
+            Expanded(
+                child: Text('Shipping Fee',
+                    style: Theme.of(context).textTheme.bodyMedium)),
             Text(
-              '\$${TPricingCalculator.calculateShippingCost(subTotal, 'US')}',
+              'Rp${TPricingCalculator.calculateShippingCost(subTotal, 'Rp')}',
               style: Theme.of(context).textTheme.labelLarge,
             ),
           ],
@@ -36,9 +40,11 @@ class TBillingAmountSection extends StatelessWidget {
         /// -- Tax Fee
         Row(
           children: [
-            Expanded(child: Text('Tax Fee', style: Theme.of(context).textTheme.bodyMedium)),
+            Expanded(
+                child: Text('Tax Fee',
+                    style: Theme.of(context).textTheme.bodyMedium)),
             Text(
-              '\$${TPricingCalculator.calculateTax(subTotal, 'US')}',
+              'Rp${TPricingCalculator.calculateTax(subTotal, 'Rp')}',
               style: Theme.of(context).textTheme.labelLarge,
             ),
           ],
@@ -48,8 +54,10 @@ class TBillingAmountSection extends StatelessWidget {
         /// -- Order Total
         Row(
           children: [
-            Expanded(child: Text('Order Total', style: Theme.of(context).textTheme.titleMedium)),
-            Text('\$${TPricingCalculator.calculateTotalPrice(subTotal, 'US')}',
+            Expanded(
+                child: Text('Order Total',
+                    style: Theme.of(context).textTheme.titleMedium)),
+            Text('Rp${TPricingCalculator.calculateTotalPrice(subTotal, 'Rp')}',
                 style: Theme.of(context).textTheme.titleMedium),
           ],
         ),

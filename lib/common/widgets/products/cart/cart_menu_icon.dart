@@ -6,7 +6,6 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../features/shop/controllers/cart_controller.dart';
 import '../../../../features/shop/screens/cart/cart.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/helpers/helper_functions.dart';
 
 /// Custom widget for the cart counter icon
 class TCartCounterIcon extends StatelessWidget {
@@ -25,7 +24,6 @@ class TCartCounterIcon extends StatelessWidget {
     final controller = CartController.instance;
 
     // Check if the app is in dark mode
-    final dark = THelperFunctions.isDarkMode(context);
 
     return Stack(
       children: [
@@ -40,7 +38,7 @@ class TCartCounterIcon extends StatelessWidget {
             width: TSizes.fontSizeLg,
             height: TSizes.fontSizeLg,
             decoration: BoxDecoration(
-              color: counterBgColor ?? (dark ? TColors.white : TColors.black),
+              color: counterBgColor ?? ( TColors.black),
               borderRadius: BorderRadius.circular(100),
             ),
             child: Center(
@@ -48,7 +46,7 @@ class TCartCounterIcon extends StatelessWidget {
                 () => Text(
                   controller.calculateTotalCartItems(),
                   style: Theme.of(context).textTheme.labelLarge!.apply(
-                        color: counterTextColor ?? (dark ? TColors.black : TColors.white),
+                        color: counterTextColor ?? (TColors.white),
                         fontSizeFactor: 0.8,
                       ),
                 ),

@@ -45,7 +45,7 @@ class _AccountPageState extends State<AccountPage> {
 
       if (userData.exists) {
         setState(() {
-          //username = userData['username'];
+          username = userData['username'];
         });
       }
     }
@@ -162,13 +162,20 @@ class _AccountPageState extends State<AccountPage> {
               menuButton(LineAwesomeIcons.alternate_sign_out, tMenu5, () {
                 _signOut(context);
               }),
+              menuButton(LineAwesomeIcons.alternate_sign_out, tMenu5, () {
+                _signOut(context);
+              }),
+              // menuButton(LineAwesomeIcons.map_marked, tMenu6, () {
+              //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //     return const ItemTracking();
+              //   }));
+              // }),
             ],
           ),
         ),
       ),
     );
   }
-
   Widget menuButton(IconData icon, String title, Function() onTap) {
     return Padding(
       padding: const EdgeInsets.all(8.0),

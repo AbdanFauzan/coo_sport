@@ -11,6 +11,8 @@ class CartController extends GetxController {
   RxList<CartItemModel> cartItems = <CartItemModel>[].obs;
   RxDouble totalCartPrice = 0.0.obs;
 
+  get value => null;
+
   // RxMap<String, int> productQuantities = <String, int>{}.obs; // Use to count each product quantity [ID: quantity]
 
   /// -- Used init to initialize dummy data only

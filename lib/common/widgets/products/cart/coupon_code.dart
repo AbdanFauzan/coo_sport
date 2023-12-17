@@ -41,7 +41,10 @@ class TCouponCode extends StatelessWidget {
                 backgroundColor: Colors.grey.withOpacity(0.2),
                 side: BorderSide(color: Colors.grey.withOpacity(0.1)),
               ),
-              child: const Text('Apply'),
+              child: const Text('Apply',
+              style: TextStyle(
+                fontSize: 12,
+              ),),
             ),
           ),
         ],
