@@ -122,6 +122,8 @@ flutter:
     - assets/images/banners/promo-banner-1.png
     - assets/images/banners/promo-banner-2.png
     - assets/images/banners/promo-banner-3.png
+    - assets/images/gmaps.png
+    - assets/icons/brands/specs-logo.png
 
 
     # =============================================

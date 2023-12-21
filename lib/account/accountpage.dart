@@ -46,6 +46,7 @@ class _AccountPageState extends State<AccountPage> {
       if (userData.exists) {
         setState(() {
           username = userData['username'];
+          // profileImageUrl = userData['profilePicture'] ?? '';
         });
       }
     }
@@ -176,6 +177,7 @@ class _AccountPageState extends State<AccountPage> {
       ),
     );
   }
+
   Widget menuButton(IconData icon, String title, Function() onTap) {
     return Padding(
       padding: const EdgeInsets.all(8.0),

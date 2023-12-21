@@ -1,11 +1,9 @@
 import 'dart:async';
-
-import 'package:coo_sport/loginpage.dart'; // Make sure to import the LoginPage widget from the correct location.
+import 'package:coo_sport/loginpage.dart';
 import 'package:flutter/material.dart';
 
 class LauncherPage extends StatefulWidget {
-  const LauncherPage({Key? key, required String title})
-      : super(key: key); // Fix the constructor syntax.
+  const LauncherPage({Key? key, required String title}) : super(key: key);
 
   @override
   _LauncherPageState createState() => _LauncherPageState();
@@ -27,11 +25,10 @@ class _LauncherPageState extends State<LauncherPage> {
     var duration = const Duration(seconds: 3);
     Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        // Replace this with the appropriate route or widget you want to navigate to.
         return LoginPage(
           showSignUpPage: () {},
           title: '',
-        ); // Remove unnecessary comma.
+        );
       }));
     });
   }
@@ -39,33 +36,36 @@ class _LauncherPageState extends State<LauncherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          color: const Color(0xFF019B83), // Set background color to #019B83
-          borderRadius: const BorderRadius.all(Radius.circular(0)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.grey.shade200,
-              offset: const Offset(2, 4),
-              blurRadius: 5,
-              spreadRadius: 2,
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Center(
-              child: Image.asset(
-                "assets/logowhite.png",
-                height: 780.0,
-                width: 780.0,
+      body: SingleChildScrollView(
+        // Wrap your content with SingleChildScrollView
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            color: const Color(0xFF019B83),
+            borderRadius: const BorderRadius.all(Radius.circular(0)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.grey.shade200,
+                offset: const Offset(2, 4),
+                blurRadius: 5,
+                spreadRadius: 2,
               ),
-            ),
-          ],
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
+                child: Image.asset(
+                  "assets/logowhite.png",
+                  height: 780.0,
+                  width: 780.0,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

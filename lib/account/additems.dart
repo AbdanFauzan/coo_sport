@@ -32,6 +32,8 @@ class _AddItemsState extends State<AddItems> {
     'Takraw',
   ];
 
+  String? selectedImage;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +57,32 @@ class _AddItemsState extends State<AddItems> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  // Implement your image upload logic here
+                  // You can use a package like image_picker to pick an image from the gallery or camera
+                },
+                child: Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: selectedImage != null
+                      ? Image.asset(
+                          selectedImage!,
+                          fit: BoxFit.cover,
+                        )
+                      : const Icon(
+                          Icons.camera_alt,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                ),
+              ),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
@@ -128,7 +155,8 @@ class _AddItemsState extends State<AddItems> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 40, horizontal: 10),
                     labelText: 'Item Description',
                     hintText: 'Enter Item Description',
                     hintStyle: TextStyle(
@@ -259,6 +287,7 @@ class _AddItemsState extends State<AddItems> {
       ),
     );
   }
+
   Future<void> _selectDate() async {
     DateTime? picked = await showDatePicker(
       context: context,
@@ -266,10 +295,8 @@ class _AddItemsState extends State<AddItems> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
     );
-    if (picked != null) {
-      setState(() {
-        dateController.text = picked.toString().split(" ")[0];
-      });
-    }
+    setState(() {
+      dateController.text = picked.toString().split(" ")[0];
+    });
   }
 }

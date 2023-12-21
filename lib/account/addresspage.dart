@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddressPage extends StatefulWidget {
   const AddressPage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _AddressPageState createState() => _AddressPageState();
 }
 
@@ -32,6 +33,9 @@ class _AddressPageState extends State<AddressPage> {
     'Myanmar',
     'Palestine',
   ];
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -151,6 +155,9 @@ class _AddressPageState extends State<AddressPage> {
                   onPressed: () {
                     // Implement your button logic here
                     // You can access form fields like streetAddressController.text, phoneNumberController.text, postcodeController.text, and selectedCountry
+
+                    // Save data to Firestore
+                    saveDataToFirestore();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 1, 155, 131),
@@ -176,5 +183,40 @@ class _AddressPageState extends State<AddressPage> {
         ),
       ),
     );
+  }
+
+  void saveDataToFirestore() async {
+    try {
+      User? user = auth.currentUser;
+      if (user != null) {
+        String userId = user.uid;
+
+        // Create a reference to the user's document
+        DocumentReference userDoc = firestore.collection('users').doc(userId);
+
+        // Save data to Firestore
+        await userDoc.set({
+          'streetAddress': streetAddressController.text,
+          'city': cityController.text,
+          'country': selectedCountry,
+          'postcode': postcodeController.text,
+        });
+
+        // Show a success message
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Address saved to Firestore.'),
+          ),
+        );
+      }
+    } catch (error) {
+      print('Error saving data to Firestore: $error');
+      // Show an error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Error saving address. Please try again.'),
+        ),
+      );
+    }
   }
 }
